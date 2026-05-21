@@ -11,7 +11,7 @@ class Loomcycle < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/denn-gubsky/loomcycle/releases/download/v0.9.0/loomcycle-darwin-amd64.tar.gz"
-      sha256 "117405a0246f520fc310b9897eecfb5954ffa9a2cccde9a54e8eb6347c1590c2"
+      sha256 "b85427ca0ccaf3f9cd355d4afd314512cd983aaf8b572f6ada7340aff5a18cfa"
 
       define_method(:install) do
         bin.install "loomcycle"
@@ -19,7 +19,7 @@ class Loomcycle < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/denn-gubsky/loomcycle/releases/download/v0.9.0/loomcycle-darwin-arm64.tar.gz"
-      sha256 "4357fe4dae57d202c4e35c6e922c1e97174987ef32aef00823099d749665ce99"
+      sha256 "669d34c73bb0e9177d46470415347ae76a97deb8063f6853e155cafcaf5bf788"
 
       define_method(:install) do
         bin.install "loomcycle"
@@ -30,14 +30,14 @@ class Loomcycle < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/denn-gubsky/loomcycle/releases/download/v0.9.0/loomcycle-linux-amd64.tar.gz"
-      sha256 "ad41d64488c63c5b7b5fe3a3c034c54c362250f44e9702c249fdedbd20fb4f3d"
+      sha256 "93aa75057f83c0d8fcc85ed396f906f2a15ed88ba6091fcb12f54b2d7b855439"
       define_method(:install) do
         bin.install "loomcycle"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/denn-gubsky/loomcycle/releases/download/v0.9.0/loomcycle-linux-arm64.tar.gz"
-      sha256 "22b240fbfeaf425546846fffcb39deee85bc18ceaadec4654d8a9b14ad07cc9c"
+      sha256 "756a0169227061f4525a6f1d190f72ce9638d864fdc40e04d6872dd418b49eaa"
       define_method(:install) do
         bin.install "loomcycle"
       end
