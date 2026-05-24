@@ -5,21 +5,21 @@
 class Loomcycle < Formula
   desc "Agentic runtime — one Go binary owning the LLM tool-use loop"
   homepage "https://github.com/denn-gubsky/loomcycle"
-  version "0.11.1"
+  version "0.11.2"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/denn-gubsky/loomcycle/releases/download/v0.11.1/loomcycle-darwin-amd64.tar.gz"
-      sha256 "d3ac9f509f2d1e191222f72785ff84fda4863c94a51f39a9efeb093c2fc190e6"
+      url "https://github.com/denn-gubsky/loomcycle/releases/download/v0.11.2/loomcycle-darwin-amd64.tar.gz"
+      sha256 "bd3ffedb7e68d6aeb72eb38907eaa8a042311b60d11ec1a7ef3ccd8bcf243f38"
 
       define_method(:install) do
         bin.install "loomcycle"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/denn-gubsky/loomcycle/releases/download/v0.11.1/loomcycle-darwin-arm64.tar.gz"
-      sha256 "a2dec95c1ffbede5f4e6fdb5c9e2819f1f56e621ed748230769f29d65d9ecc9f"
+      url "https://github.com/denn-gubsky/loomcycle/releases/download/v0.11.2/loomcycle-darwin-arm64.tar.gz"
+      sha256 "c413b59d90a2d93ec2a8e21d2779e9010de3595b99e197db0183a498ea52b88c"
 
       define_method(:install) do
         bin.install "loomcycle"
@@ -29,15 +29,15 @@ class Loomcycle < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/denn-gubsky/loomcycle/releases/download/v0.11.1/loomcycle-linux-amd64.tar.gz"
-      sha256 "16ff23a90b2a54e6219005d5b95e5c833c835c8e79b3da75141928fd3cc5d4a0"
+      url "https://github.com/denn-gubsky/loomcycle/releases/download/v0.11.2/loomcycle-linux-amd64.tar.gz"
+      sha256 "97522b2185b5d2e037c2c614796391f3f81ffb5a983b45a632004b91a086b78c"
       define_method(:install) do
         bin.install "loomcycle"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/denn-gubsky/loomcycle/releases/download/v0.11.1/loomcycle-linux-arm64.tar.gz"
-      sha256 "d6d73c8bd2e0bdeccff25fa0ce3885fef5c3042fae7052df17276b4d28311e90"
+      url "https://github.com/denn-gubsky/loomcycle/releases/download/v0.11.2/loomcycle-linux-arm64.tar.gz"
+      sha256 "b2b0536b10e8dc1983dd79e73c7e49575f2dacdf86605589dfed30d3218b0b2a"
       define_method(:install) do
         bin.install "loomcycle"
       end
@@ -46,13 +46,17 @@ class Loomcycle < Formula
 
   def caveats
     <<~EOS
-      loomcycle ships as a single Go binary that reads configuration from
-      a YAML file. Quick start:
+      Quick start (v0.11.1+):
 
-        mkdir -p ~/.config/loomcycle
-        # Drop your loomcycle.yaml into ~/.config/loomcycle/
-        # See https://github.com/denn-gubsky/loomcycle for examples.
-        loomcycle --config ~/.config/loomcycle/loomcycle.yaml
+        loomcycle init       # bootstrap ~/.config/loomcycle/loomcycle.yaml
+        # set $LOOMCYCLE_AUTH_TOKEN and at least one provider key
+        # (ANTHROPIC_API_KEY / OPENAI_API_KEY / DEEPSEEK_API_KEY)
+        loomcycle doctor     # verify your setup
+        loomcycle            # start the server on 127.0.0.1:8787
+
+      For background-service operation on macOS, see Homebrew's
+      `brew services`. For Docker-based deployment, pull from
+      docker.io/denngubsky/loomcycle (v0.11.2+).
     EOS
   end
 
