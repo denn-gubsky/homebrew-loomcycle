@@ -5,21 +5,21 @@
 class Loomcycle < Formula
   desc "Agentic runtime — one Go binary owning the LLM tool-use loop"
   homepage "https://github.com/denn-gubsky/loomcycle"
-  version "1.47.0"
+  version "1.48.0"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/denn-gubsky/loomcycle/releases/download/v1.47.0/loomcycle-darwin-amd64.tar.gz"
-      sha256 "9653cd6d9de8775fa657f556dc1d19360b8905ce8d2d9f40a3790e112f8db13e"
+      url "https://github.com/denn-gubsky/loomcycle/releases/download/v1.48.0/loomcycle-darwin-amd64.tar.gz"
+      sha256 "0a0f90be675d85274b59792a7973885b70d934845e68c99a54f3ff374cc109df"
 
       define_method(:install) do
         bin.install "loomcycle"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/denn-gubsky/loomcycle/releases/download/v1.47.0/loomcycle-darwin-arm64.tar.gz"
-      sha256 "10dae1b2569a23fac18cf54fb45a61558ae5a14810a8a6063591277b032170de"
+      url "https://github.com/denn-gubsky/loomcycle/releases/download/v1.48.0/loomcycle-darwin-arm64.tar.gz"
+      sha256 "7e3c1fcb31e2921ab6d787e6823fa939a98cf00a319a65ce5e681e4b6b0317db"
 
       define_method(:install) do
         bin.install "loomcycle"
@@ -29,15 +29,15 @@ class Loomcycle < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/denn-gubsky/loomcycle/releases/download/v1.47.0/loomcycle-linux-amd64.tar.gz"
-      sha256 "dd5e52bb92aeef052ba29562bf963ce7a0e8ab9306816ee8b32b961391e1adce"
+      url "https://github.com/denn-gubsky/loomcycle/releases/download/v1.48.0/loomcycle-linux-amd64.tar.gz"
+      sha256 "6d4b2e75ee1df52138fb472df4c5d61eb51d158703abc0f8d0c14beeff4655f7"
       define_method(:install) do
         bin.install "loomcycle"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/denn-gubsky/loomcycle/releases/download/v1.47.0/loomcycle-linux-arm64.tar.gz"
-      sha256 "1fbf92de83207c32688bad09850d675bca33f3e6ab3ab01c4a32180d3b019087"
+      url "https://github.com/denn-gubsky/loomcycle/releases/download/v1.48.0/loomcycle-linux-arm64.tar.gz"
+      sha256 "8dee3d59e44b12bd97b26ea1ea61eb722e3168aea205ed8cd2691526398cbd2a"
       define_method(:install) do
         bin.install "loomcycle"
       end
